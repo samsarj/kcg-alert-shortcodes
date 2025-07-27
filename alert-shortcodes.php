@@ -2,8 +2,13 @@
 /*
 Plugin Name: Bootstrap Alert Shortcodes
 Description: A plugin to add Bootstrap-style alerts using shortcodes with options to hide and expire alerts.
-Version: 1.0
+Version: 2.0.0
 Author: Sam Sarjudeen
+Author URI: https://github.com/samsarj
+Plugin URI: https://github.com/samsarj/kcg-alert-shortcodes
+GitHub Plugin URI: https://github.com/samsarj/kcg-alert-shortcodes
+Primary Branch: main
+Text Domain: kcg-alert-shortcodes
 */
 
 function enqueue_alert_styles() {
@@ -138,9 +143,9 @@ function bootstrap_alert_shortcode($atts) {
         // Start output buffering
         ob_start();
         ?>
-        <div class="alert alert-<?php echo esc_attr($type); ?>" role="alert">
+        <div class="kcg-card alert alert-<?php echo esc_attr($type); ?>" role="alert">
             <?php if ($show_title) : ?>
-                <h6 class="alert-heading"><?php echo esc_html(get_the_title()); ?></h6>
+                <h4><?php echo esc_html(get_the_title()); ?></h4>
             <?php endif; ?>
             <?php echo wp_kses_post(get_the_content()); ?>
         </div>
